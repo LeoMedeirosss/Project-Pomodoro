@@ -1,5 +1,5 @@
 export function History() {
     return(
-        <h1>Historic</h1>
+        <h1>History</h1>
     )
 }
