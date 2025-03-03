@@ -84,6 +84,6 @@ export const Status = styled.span<StatusProps>`
         width: 0.5rem;
         height:0.5rem;
         border-radius: 50%;
-         background: ${(props) => {return props.theme[STATUS_COLORS[props.$statusColor]]}};
+        background: ${(props) => {return props.theme[STATUS_COLORS[props.$statusColor]]}};
     }
 `
