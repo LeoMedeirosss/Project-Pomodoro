@@ -2,9 +2,12 @@ import styled from "styled-components"
 
 export const HistoryContainer = styled.main`
     flex:1;
-    padding:0.5rem;
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    padding-right:3rem;
     display:flex;
     flex-display:column;
+    
 
     h1 {
         font-size:1.5rem;
