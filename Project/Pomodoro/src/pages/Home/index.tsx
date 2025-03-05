@@ -1,6 +1,12 @@
 import { Play } from "phosphor-react";
 
-import { CountdownContainer, FormContainer, HomeConteiner, MinutesAmountInput, Separator, StartCountdownButton, TaskInput } from "./styles";
+import { CountdownContainer, FormContainer, 
+         HomeConteiner, MinutesAmountInput, 
+         Separator, StartCountdownButton, 
+         TaskInput 
+} from "./styles";
+
+
 
 export function Home() {
     return(
