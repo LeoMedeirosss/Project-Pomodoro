@@ -44,13 +44,20 @@ export function Home() {
     const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
 
     useEffect(() => {
+        let interval: number
+
         if(activeCycle) {
-            setInterval(() => {
+            interval = setInterval(() => {
                 setAmountSecondsPassed(
                     differenceInSeconds(new Date(), activeCycle.startDate)
                 )
             }, 1000)
         }
+
+        return () => {
+            clearInterval(interval)
+        }
+
     }, [activeCycle])
 
     function handleCreateNewCycle(data: NewCycleFormData) {
@@ -64,8 +71,9 @@ export function Home() {
 
         }
 
-        setCycles( (state) => [...cycles, newCycle])
+        setCycles( (state) => [...state, newCycle])
         setActiveCycleId(id)
+        setAmountSecondsPassed(0)
 
         reset()
     }
@@ -75,10 +83,18 @@ export function Home() {
 
     //numero de minutos e de segundos exibidos em tela
     const minutesAmount = Math.floor(currentSeconds / 60)
+
     const secondsAmount = currentSeconds % 60
 
     const minutes = String(minutesAmount).padStart(2, "0")
+
     const seconds = String(secondsAmount).padStart(2, "0")
+
+    useEffect(() => {
+        if(activeCycle){
+            document.title = `${minutes}:${seconds}`
+        }
+    }, [minutes, seconds,activeCycle])
 
     const task = watch("task")
 
